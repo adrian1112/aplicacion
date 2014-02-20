@@ -1,27 +1,20 @@
 <h1>Lista de Usuarios</h1>
 <div class="imagen_logo">
-   <%= image_tag "images.jpg", :alt => "ESPOL", :title => "ESPOL"%>
-</div>
- <%= link_to 'Agregar Usuario', new_post_path %>
+   <%= image_tag "images.jpg"%>
 <table>
-  <tr>
-    <th>Nombre</th>
-    <th>Apellido</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
- 
-  <% @posts.each do |post| %>
-    <tr>
-      <td><%= post.title %></td>
-      <td><%= post.text %></td>
-      <td><%= link_to 'Show', post_path(post) %></td>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <td><%= link_to 'Destroy', post_path(post),
-                      method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      
-    </tr>
+<tr>
+  <th>Nombre</th>
+  <th>Apellido</th>
+</tr>
 
-  <% end %>
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.title %></td>
+    <td><%= post.text %> </td>
+    <td><%= link_to "Mostrar", post %></td>
+    <td><%= link_to "Editar", edit_post_path(post) %></td>
+    <td><%= link_to "Eliminar", post_path(post), method: :delete, data: { confirm: 'Esta seguro de eliminar a este usuario?' } %></td>
+  </tr>
+<% end %>
 </table>
+<%= link_to "Nuevo Usuario", new_post_path %>
